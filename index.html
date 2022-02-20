@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+
+
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width"/>
+
+</head>
+<body>
+
+<center> <h1> Envoi de notes de frais à EGNOM </h1> 
+<div id="connexion">
+
+	Portail d'identification 
+
+        
+<p><label for="nom_utilisateur">Identifiant</label><br>
+<input type="text" placeholder="Nom d'utilisateur" name="nom_utilisateur" id= "nom_utilisateur" />  
+<br><br>
+<label for="motdepasse">Mot de passe</label><br>
+<input type="password" placeholder="Mot de passe" name="motdepasse" id="motdepasse" />
+<br><br>
+<label for="url">Url</label><br>
+<input type="text" placeholder="url" name="url" id= "url" />
+<br><br>
+<label for="dossier">Sous-dossier</label><br>
+<input type="text" placeholder="dossier" name="dossier" id= "dossier" />
+<br><br>
+<input type="button" id= "identification" value="Connexion" onclick= "connexion()"/></p>
+
+
+</div>
+
+<div id='formulaire' hidden>
+
+	Formulaire
+
+	<form method="post" >   
+			Date de paiement        
+            <p><input type="date" placeholder="Date de paiement" name="date_paiement" id="date" />  
+            <br><br>
+            Libellé
+            <input type="text" placeholder="Libellé" name="libelle" id="libelle"/>
+            <br><br>
+            Montant
+            <input type="text" placeholder="Montant" name="montant" id="montant"/>
+            <br><br>
+            <label for="mode_règlement">Mode de règlement : </label>
+                                <select name="mode_règlement" id="mode_reglement">
+                                    <option>--</option>
+                                    <option>Espèce</option>
+                                    <option>Chèque</option>
+                                    <option>CB</option>
+                                    <option>etc.</option>
+                                </select>
+
+            <br><br>
+
+            Sens
+
+			<input type="radio" name="Sens" value="Débit" id="debit" checked="checked" class="sens"/> <label for="oui">Débit</label> <br>
+			<input type="radio" name="Sens" value="Crédit" id="credit" class="sens"/> <label for="non">Crédit</label>
+
+			<br><br>
+
+			Insérer une photo de la facture
+
+			<input type="file" id="photoToSend" class="hiddenText" onchange="readURL(this);">
+
+			<br><br>
+
+
+            <input type="button" id="form" value="Valider" onclick="postInvoices()"/></p>
+        </form>
+
+</div>
+</center>
+
+<script src="js/index.js"></script>
+</body>
+</html>
